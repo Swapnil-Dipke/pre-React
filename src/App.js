@@ -1,5 +1,14 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import ConditionalCompoent from './ConditionalComponent';
+import FalseComponent from './FalseComponent';
+import MyParentComponent1 from './MyParentComponent1';
+import TrueComponent from './TrueComponent';
+//import MyChildComponent1 from './MyChildComponent1';
+
+
+
+
 
 // function App() {
 //   return (
@@ -22,151 +31,69 @@ import './App.css';
 //   );
 // }
 
-
-
-
-
-
-//import MyFirstComponent from "./MyFirstComponent";
-//import MySecondComponent from "./MySecondComponent";
-
-// import MyThirdComponent from "./MyThirdComponent";
-// import MyFourthComponent from "./MyFourthComponent";
-
-
-
-// <div>
-//   <h1>Hello {name && name.length ? name : "world"}</h1>
-// </div>
-
-// import MyThirdComponent from './MyThirdComponent';
-
-
-
-// function App(){
-// //  const name="ankur";
- // return (
-//     <div>
-//       {/* <h1>  HEllo World</h1> */}
-//       {/* <h1>Hello {name} </h1> */}
-//       {/* <MyFirstComponent /> */}
-//       {/* <MySecondComponent/> */}
-// {/* 
-
-        //  <MyThirdComponent /> 
-          
-     
-
-
-
-//     </div>
-//   );
-// }
-
-
-
-// export default App; */}
-
-
-
-//----  19-11-21   props by using key value pair-------------------
-
-// import MyFirstComponent from './MyFirstComponent';
-// import MySecondComponent from "./MySecondComponent";
-
-// function App(){
-//   const name="ankur";
-//   const address="vaishali nagar mouda"
-//   const schoolAddress="DCPS mouda"
-//   const schoolName="DCPS"
-//   return (
-//     <div>
-//       <h1> Hello {name && name.length ? name : "World"}</h1>
-//     <MyFirstComponent name={name} age = {25} address={address}  pincode={41104}  />
-
-//     <MySecondComponent schoolName={schoolName} since={1950} schoolAddress={schoolAddress} pincode={441104}/>  
-//     <h2>some data passed from App content via children w/o key value pair</h2>
-//     </div>
-
-
-//   );
-// }
 // export default App;
 
 
 
-//----- props data fetch via using children -----------------------
 
-// import MyFirstComponent from './MyFirstComponent';
-// import MySecondComponent from "./MySecondComponent";
+//--------------- parent connects with both child account ---------------
 
 
-
-
-// function App(){
-//   const name="ankur";
-//   const address="vaishali nagar mouda"
-//   //const schoolAddress="DCPS mouda"
-//   //const schoolName="DCPS"
+// function App() {
+ 
 //   return (
+//    <>
 //     <div>
-//       <h1> Hello {name && name.length ? name : "World"}</h1>
-//     <MyFirstComponent name={name} age = {25} address={address}  pincode={41104}>
-    
-//     {/* we introduce div or any elements without key value pair by using {children} */}
-
-//     <div>some data passed from App content via children w/o key value pair </div>
-//     <div> by h2 tag using children</div>
-//     <div> </div>
-//     </MyFirstComponent>
-
-//     {/* <MySecondComponent schoolName={schoolName} since={1950} schoolAddress={schoolAddress} pincode={441104}/> */}  
+//       <MyParentComponent1/>
 //     </div>
-//   );
-// }
-// export default App;
+
+//     </>
+//   ); 
+// }  
+//  export default App;
 
 
 
-//---------- coding gaming --------------
-
-import MyFirstComponent from './MyFirstComponent';
-import MySecondComponent from "./MySecondComponent";
-import MyThirdComponent from "./MyThirdComponent";
+//----------------   Conditional Rendering ------------------
 
 
+//  function App() {
+//  const name="swapnil";
+//    return (
+//     <>
+//      <div>
+//      From App
+//      </div> 
 
-function App(){
-
-  const name="ankur";
-  const address="vaishali nagar mouda"
-  
-  return (
-    <div>
-     
-    <MyFirstComponent parentComponentName={"App"}>  
-       <div> i am inside my App MyFirstComponent fro app</div>
-    </MyFirstComponent>
+//      {/* from conditional operator */}
+//      {/* { name === "Swapnil" ? <TrueComponent/> : <FalseComponent/>     } */}
 
 
-    <MySecondComponent  parentComponentName={"App"}>  
-       <div> i am inside my App MySecondComponent from app</div>
-    </MySecondComponent>
-
-    <MyThirdComponent  parentComponentName={"App"}>  
-       <div> i am inside my App MyThirdComponent fro</div>
-    </MyThirdComponent>
-
-
-    {/* <MySecondComponent schoolName={schoolName} since={1950} schoolAddress={schoolAddress} pincode={441104}/> */}  
-    </div>
-  );
-}
-
-export default App;
+//     {/* from if block : if true excutes on RH else blank  */}
+//     { name ==="wapnil" && <TrueComponent/>}
+//      </>
+//    ); 
+//  }  
+//   export default App;
 
 
+//---------------- program of show and hide code ------------
 
+
+  function App() {
+  const name="swapnil";
+    return (
+     <>
+      <div>
+      From App
+      </div> 
+
+     <ConditionalCompoent/>
+
+      </>
+    ); 
+  }  
+   export default App;
 
 
 
