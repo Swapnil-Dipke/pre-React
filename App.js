@@ -1,10 +1,10 @@
 //import logo from './logo.svg';
 import './App.css';
-import ConditionalCompoent from './ConditionalComponent';
-import FalseComponent from './FalseComponent';
-import MyParentComponent1 from './MyParentComponent1';
-import TrueComponent from './TrueComponent';
-//import MyChildComponent1 from './MyChildComponent1';
+// import ConditionalCompoent from './ConditionalComponent';
+// import FalseComponent from './FalseComponent';
+// import MyParentComponent1 from './MyParentComponent1';
+// import TrueComponent from './TrueComponent';
+// //import MyChildComponent1 from './MyChildComponent1';
 
 
 
@@ -97,22 +97,56 @@ import TrueComponent from './TrueComponent';
 
 
 
+//-----------input oninputchange and value -----------------
+
+  // import logo from './logo.svg';
+  // import './App.css';
+  // import ListComponent from './ListComponent';
+  
+  // function App() {
+  //   return (<>
+  
+  //   <ListComponent/>
+  //   </>
+  
+  //   );
+  // }
+  
+  // export default App;
 
 
-  import logo from './logo.svg';
-  import './App.css';
-  import ListComponent from './ListComponent';
+
+
+
+
+//---------------Form 24/11/21
+
+
+   import logo from './logo.svg';
+   import './App.css';
+   import ListComponent from './ListComponent';
+import FormComponent from './FormComponent';
   
-  function App() {
-    return (<>
+   function App() {
+     return (<>
   
-    <ListComponent/>
-    </>
+     <FormComponent/>
+     </>
   
-    );
-  }
+     );
+   }
   
-  export default App;
+   export default App;
+
+
+
+
+
+
+
+
+
+
 
 
 
