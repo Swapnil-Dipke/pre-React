@@ -1,10 +1,13 @@
-//import logo from './logo.svg';
+import logo from './logo.svg';
 import './App.css';
-// import ConditionalCompoent from './ConditionalComponent';
-// import FalseComponent from './FalseComponent';
-// import MyParentComponent1 from './MyParentComponent1';
-// import TrueComponent from './TrueComponent';
-// //import MyChildComponent1 from './MyChildComponent1';
+
+import newFormComponent from './NewFormComponent';
+import LifeCycle from './LifeCycle';
+import LifeCycleUpdtae from './LifeCycleUpdate';
+import NewFormComponent from './NewFormComponent';
+import RefscallBack from './RefsExample';
+import RefsExample from './RefsExample';
+import DynamicClass from './DynamicClass';
 
 
 
@@ -80,67 +83,35 @@ import './App.css';
 //---------------- program of show and hide code ------------
 
 
-  // function App() {
-  // const name="swapnil";
-  //   return (
-  //    <>
-  //     <div>
-  //     From App
-  //     </div> 
+  function App() {
+  const name="swapnil";
+    return (
+     <>
+      <div>
+      From App
+      </div> 
 
-  //    <ConditionalCompoent/>
+       <h1 className={"my-class"}> <p>
+        using css
+        </p>
+        From App</h1>
+{/* 
+        <div className={"my-true-div"}> I am inside my true div </div>
+       <div className={"my-false-div"}> I am inside my false div </div> */}
+      
+     
+      <DynamicClass />
+      {/* <newFormComponent/> */}
+      {/* <LifeCycle/> */}
 
-  //     </>
-  //   ); 
-  // }  
-  //  export default App;
-
-
-
-//-----------input oninputchange and value -----------------
-
-  // import logo from './logo.svg';
-  // import './App.css';
-  // import ListComponent from './ListComponent';
-  
-  // function App() {
-  //   return (<>
-  
-  //   <ListComponent/>
-  //   </>
-  
-  //   );
-  // }
-  
-  // export default App;
-
-
-
-
-
-
-//---------------Form 24/11/21
-
-
-   import logo from './logo.svg';
-   import './App.css';
-   import ListComponent from './ListComponent';
-import FormComponent from './FormComponent';
-  
-   function App() {
-     return (<>
-  
-     <FormComponent/>
-     </>
-  
-     );
-   }
-  
+      {/* <LifeCycleUpdtae/> */}
+     {/* <RefsExample/> */}
+     {/* <RefscallBack/> */}
+      {/* <NewFormComponent/> */}
+      </>
+    ); 
+  }  
    export default App;
-
-
-
-
 
 
 
