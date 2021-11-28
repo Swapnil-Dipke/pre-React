@@ -1,14 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 
-import newFormComponent from './NewFormComponent';
-import LifeCycle from './LifeCycle';
-import LifeCycleUpdtae from './LifeCycleUpdate';
-import NewFormComponent from './NewFormComponent';
-import RefscallBack from './RefsExample';
-import RefsExample from './RefsExample';
-import DynamicClass from './DynamicClass';
-
+import { Navbarcomponent } from './NavbarComponent';
+import { HeaderComponent } from './HeaderComponent';
+import { FooterComponent } from './FooterComponent';
+import { BodyComponent } from './BodyComponent.';
 
 
 
@@ -39,102 +35,19 @@ import DynamicClass from './DynamicClass';
 
 
 
-//--------------- parent connects with both child account ---------------
 
-
-// function App() {
- 
-//   return (
-//    <>
-//     <div>
-//       <MyParentComponent1/>
-//     </div>
-
-//     </>
-//   ); 
-// }  
-//  export default App;
-
-
-
-//----------------   Conditional Rendering ------------------
-
-
-//  function App() {
-//  const name="swapnil";
-//    return (
-//     <>
-//      <div>
-//      From App
-//      </div> 
-
-//      {/* from conditional operator */}
-//      {/* { name === "Swapnil" ? <TrueComponent/> : <FalseComponent/>     } */}
-
-
-//     {/* from if block : if true excutes on RH else blank  */}
-//     { name ==="wapnil" && <TrueComponent/>}
-//      </>
-//    ); 
-//  }  
-//   export default App;
-
-
-//---------------- program of show and hide code ------------
-
-
-  function App() {
-  const name="swapnil";
-    return (
-     <>
-      <div>
-      From App
-      </div> 
-
-       <h1 className={"my-class"}> <p>
-        using css
-        </p>
-        From App</h1>
-{/* 
-        <div className={"my-true-div"}> I am inside my true div </div>
-       <div className={"my-false-div"}> I am inside my false div </div> */}
+function App() {
+  return (
+    <div className="App">
+    
       
-     
-      <DynamicClass />
-      {/* <newFormComponent/> */}
-      {/* <LifeCycle/> */}
+      <HeaderComponent />
+      <Navbarcomponent />
+      <BodyComponent />
+      <FooterComponent />
 
-      {/* <LifeCycleUpdtae/> */}
-     {/* <RefsExample/> */}
-     {/* <RefscallBack/> */}
-      {/* <NewFormComponent/> */}
-      </>
-    ); 
-  }  
-   export default App;
+    </div>
+  );
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default App;
