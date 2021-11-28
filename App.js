@@ -1,13 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './Navbar';
 
-import { Navbarcomponent } from './NavbarComponent';
-import { HeaderComponent } from './HeaderComponent';
-import { FooterComponent } from './FooterComponent';
-import { BodyComponent } from './BodyComponent.';
-
-
-
+import { Routes, Route } from "react-router-dom";
+import { Header } from './Header';
+import { ToDo } from './ToDo';
+import { Post } from './Post';
 
 // function App() {
 //   return (
@@ -39,12 +37,17 @@ import { BodyComponent } from './BodyComponent.';
 function App() {
   return (
     <div className="App">
-    
-      
-      <HeaderComponent />
-      <Navbarcomponent />
-      <BodyComponent />
-      <FooterComponent />
+
+      {/* <Header />
+  
+     <Post/>
+     <ToDo/> */}
+
+<Navbar />             
+    <Routes>
+      <Route path={"/Post"} element={<Post/>}/>
+      <Route path={"/ToDo"} element={<ToDo/>}/>
+    </Routes>
 
     </div>
   );
