@@ -23,8 +23,14 @@ export class Navbar extends Component{
         <li class="nav-item">
           <Link class="nav-link active" aria-current="page" to={"/Post"}>Post</Link>
         </li>
+
         <li class="nav-item">
           <Link class="nav-link" to={"/ToDo"}>To Do</Link>
+        </li>
+
+
+        <li class="nav-item">
+          <Link class="nav-link" to={"/User"}>User</Link>
         </li>
 
 {/* 

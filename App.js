@@ -4,8 +4,15 @@ import { Navbar } from './Navbar';
 
 import { Routes, Route } from "react-router-dom";
 import { Header } from './Header';
-import { ToDo } from './ToDo';
-import { Post } from './Post';
+
+ import { posts } from './Post';
+import Post from './Post';
+import ToDo from './ToDo';
+import { User } from './User';
+
+
+
+// import {Posts} from './Posts';
 
 // function App() {
 //   return (
@@ -46,7 +53,8 @@ function App() {
 <Navbar />             
     <Routes>
       <Route path={"/Post"} element={<Post/>}/>
-      <Route path={"/ToDo"} element={<ToDo/>}/>
+      <Route path={"/ToDo"} element={<ToDo />}/>
+      <Route path={"/User"} element={<User />}/>
     </Routes>
 
     </div>
