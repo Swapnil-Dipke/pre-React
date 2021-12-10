@@ -24,7 +24,8 @@ function App() {
     
 
 
-    <HookSampleUser />
+    {/* <HookSampleUser /> */}
+    <HooksSample />
 
 
     {/* <ProfilerDemo /> */}
