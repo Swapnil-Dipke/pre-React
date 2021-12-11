@@ -8,10 +8,13 @@ export default () => {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [isEditmode, setIseditmode] = useState(false);
+  const [isEditmode, setIsEditmode] = useState(false);
   const [userId, setuserId] = useState(0);
-
   const [website, setWebsite] = useState("");
+
+  const [editObject, setEditObject] = useState({});
+  const [userObject, setUserObject] = useState({});
+  const [selectedUserId, setSelectedUserId] = useState(-1);
 
   useEffect(() => {
     fetchData();
@@ -28,70 +31,152 @@ export default () => {
       });
   };
 
-  const onNameChange = (event) => {
-    setName(event.target.value);
-  };
+  // const onNameChange = (event) => {
+  //   setName(event.target.value);
+  // };
 
-  const onUserNameChange = (event) => {
-    setUserName(event.target.value);
-  };
+  // const onUserNameChange = (event) => {
+  //   setUserName(event.target.value);
+  // };
 
-  const onEmailChange = (event) => {
-    setEmail(event.target.value);
-  };
-  const onPhoneChange = (event) => {
-    setPhone(event.target.value);
-  };
+  // const onEmailChange = (event) => {
+  //   setEmail(event.target.value);
+  // };
+  // const onPhoneChange = (event) => {
+  //   setPhone(event.target.value);
+  // };
 
-  const onWebsiteChange = (event) => {
-    setWebsite(event.target.value);
-  };
+  // const onWebsiteChange = (event) => {
+  //   setWebsite(event.target.value);
+  // };
 
   const onDeleteHandler = (id) => {
     console.log();
     axios
       .delete("https://jsonplaceholder.typicode.com/users/" + id)
       .then((response) => {
+            alert("Deleted..");
         fetchData();
-        alert("Deleted..");
+    
       });
   };
 
-  const onEdit = (userObject) => {
-    console.log(userObject);
-    setIseditmode(true);
-    setName(userObject.name);
-    setUserName(userObject.username);
-    setEmail(userObject.email);
-    setPhone(userObject.phone);
+  const onEditClickHandler = (userObject) => {
+    // console.log(userObject);
+    // setIseditmode(true);
+    // setName(userObject.name);
+    // setUserName(userObject.username);
+    // setEmail(userObject.email);
+    // setPhone(userObject.phone);
+    // setuserId(userObject.id);
+    // setWebsite(userObject.website);
+    setEditObject({
+      ...userObject,
+    });
     setuserId(userObject.id);
-    setWebsite(userObject.website);
+    setSelectedUserId(userObject.id);
   };
 
   const onReset = (event) => {
     if (event) {
       event.preventDefault();
-    }
-    setIseditmode(false);
-    setName("");
-    setUserName("");
-    setEmail("");
-    setPhone("");
+     }
+      setIsEditmode(false);
+      setName("");
+      setUserName("");
+      setEmail("");
+      setPhone("");
+      setWebsite("");
+    
   };
+
+  //--------------------------------------
+
+
+  const onEditObjectHandler = (event) => {
+    
+    if (event) {
+      const { name, value } = event.target;
+      setEditObject({
+        ...editObject,
+        [name]: value,
+      });
+    }
+   
+  
+  };
+
+
+
+
+
+  const onUserChangeHandler = (event) => {
+    if (event) {
+      const { name, value } = event.target;
+      setUserObject = {
+        ...userObject,
+        [name]: value,
+      };
+    }
+  };
+
+  const onResetEditRow =  () =>{
+      setSelectedUserId(-1);
+      setEditObject({name:"", username:"", phone:"", email:"",website:""})
+  }
+
+
+
+
+  const onUpdateRow = () =>{
+    if (userId > 0) {
+          axios
+            .put("https://jsonplaceholder.typicode.com/posts/" + userId, {
+              // id: postId,
+              // title,
+              // body,
+              // postId: 1,
+               ...editObject,
+              // ...postObject,
+            })
+            .then((response) => {
+              if (response) {
+                fetchData();
+                alert("Updated...!");
+                // onResetClickHandler();
+                onResetEditRow();
+              }
+            });
+        }
+        
+  }
+
+
+
+
+
+
+
+
+
+
+
 
   const onFormSubmit = (event) => {
     event.preventDefault();
-    console.log(name, username);
+    console.log(name, username, email, phone, website);
 
-    if (userId > 0) {
+    if (!isEditmode) {
       axios
         .post("https://jsonplaceholder.typicode.com/users", {
-          name,
-          username,
-          userId: 1,
-          email,
-          phone,
-           website,
+          // name,
+          // username,
+          // userId: 1,
+          // email,
+          // phone,
+          // website,
+          ...userObject,
+          userId:1,
         })
         .then((response) => {
           console.log(response);
@@ -99,38 +184,44 @@ export default () => {
 
           fetchData();
 
-          setName("");
-          setUserName("");
-          setEmail("");
-          setPhone("");
-          setWebsite("");
+          // setName("");
+          // setUserName("");
+          // setEmail("");
+          // setPhone("");
+          // setWebsite("");
+          setUserObject({
+             setName:"",
+            setUserName:"",
+            setEmail:"",
+            setPhone:"",
+            setWebsite:"",
+          });
         });
-    }else{
-      if (userId > 0) {
-        
-        axios
-        .put("https://jsonplaceholder.typicode.com/users"+ userId, {
-          name,
-          username,
-          userId: 1,
-          email,
-          phone,
-          // website,
-        })
-        .then((response) => {
-         if (response) {
-        
 
-          fetchData();
-          onReset();
+      // }
+      // else{
+      //   if (userId > 0) {
 
-         }
-          
-        
-      });
+      //     axios
+      //     .put("https://jsonplaceholder.typicode.com/users"+ userId, {
+      //       name,
+      //       username,
+      //       userId: 1,
+      //       email,
+      //       phone,
+      //       // website,
+      //     })
+      //     .then((response) => {
+      //      if (response) {
+
+      //       fetchData();
+      //       onReset();
+
+      //      }
+
+      //   });
+      // }
     }
-  }
-    
 
     axios
       .post("https://jsonplaceholder.typicode.com/users", {
@@ -139,7 +230,7 @@ export default () => {
         userId: 1,
         email,
         phone,
-        // website,
+         website,
       })
       .then((response) => {
         console.log(response);
@@ -160,16 +251,40 @@ export default () => {
       <h2>Users Form</h2>
       <form onSubmit={onFormSubmit}>
         <label>Name</label>
-        <input name="name" value={name} onChange={onNameChange} />
+        <input
+          name="name"
+          value={userObject.name}
+          onChange={onUserChangeHandler}
+        />
+        <br />
         <label>User Name</label>
-        <input name="username" value={username} onChange={onUserNameChange} />
+        <input
+          name="username"
+          value={userObject.username}
+          onChange={onUserChangeHandler}
+        />
+        <br />
         <label>Email</label>
-        <input name="email" value={email} onChange={onEmailChange} />
+        <input
+          name="email"
+          value={userObject.email}
+          onChange={onUserChangeHandler}
+        />
+        <br />
         <label>Phone</label>
-        <input name="phone" value={phone} onChange={onPhoneChange} />
-         <label>Website</label> 
-         <input name="website" value={website} onChange={onWebsiteChange} /> 
-
+        <input
+          name="phone"
+          value={userObject.phone}
+          onChange={onUserChangeHandler}
+        />
+        <br />
+        <label>Website</label>
+        <input
+          name="website"
+          value={editObject.website}
+          onChange={onUserChangeHandler}
+        />
+        <br />
         <button type="submit"> {isEditmode ? "update" : "Submit"}</button>
         {isEditmode && <button onClick={onReset}>Reset</button>}
       </form>
@@ -193,17 +308,124 @@ export default () => {
             return (
               <tr key={user.id}>
                 <td>{user.id}</td>
+
+                <td>
+                  {" "}
+                  {selectedUserId === user.id ? (
+                    <input
+                      name="name"
+                      value={editObject.name}
+                      onChange={onEditObjectHandler}
+                    />
+                  ) : (
+                    user.name
+                  )}
+                </td>
+
+                <td>
+                  {" "}
+                  {selectedUserId === user.id ? (
+                    <input
+                      name="username"
+                      value={editObject.username}
+                      onChange={onEditObjectHandler}
+                    />
+                  ) : (
+                    user.username
+                  )}
+                </td>
+
+                <td>
+                  {" "}
+                  {selectedUserId === user.id ? (
+                    <input
+                      name="email"
+                      value={editObject.email}
+                      onChange={onEditObjectHandler}
+                    />
+                  ) : (
+                    user.email
+                  )}
+                </td>
+
+                <td>
+                  {" "}
+                  {selectedUserId === user.id ? (
+                    <input
+                      name="phone"
+                      value={editObject.phone}
+                      onChange={onEditObjectHandler}
+                    />
+                  ) : (
+                    user.phone
+                  )}
+                </td>
+
+                <td>
+                  {" "}
+                  {selectedUserId === user.id ? (
+                    <input
+                      name="website"
+                      value={editObject.website}
+                      onChange={onEditObjectHandler}
+                    />
+                  ) : (
+                    user.website
+                  )}
+                </td>
+                <td></td>
+
+                {/* 
+
                 <td>{user.name}</td>
                 <td>{user.username}</td>
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
-                <td>{user.website}</td>
+                <td>{user.website}</td> */}
+
                 <td>
+                  {selectedUserId === user.id ? (
+                    <>
+                      <button
+                      onClick={()=>{
+                        onUpdateRow();
+                      }}
+                      >
+                        Update
+                      </button>
+
+                      <button
+                      onClick ={()=>{
+                        onResetEditRow()
+                      }}
+                      >
+                        {" "}
+                        Reset{" "}
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <button  onClick={onDeleteHandler} >
+                        Delete
+                      </button>
+
+                      <button
+                        onClick={() => {
+                          onEditClickHandler(user);
+                        }}
+                      >
+                        Edit
+                      </button>
+                    </>
+                  )}
+                </td>
+
+                {/* 
                 <td><button onClick={()=>{onEdit(user)}}>Edit</button></td>
                 </td>
                 <td>
                   <button onClick={onDeleteHandler}>Delete</button>
-                </td>
+                </td> */}
               </tr>
             );
           })}
