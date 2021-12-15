@@ -1,0 +1,58 @@
+// body {
+//   background-color: red;
+// }
+
+//---------- scss 15/12/2021 ----------------------
+
+// $primary-color: #5d5c61;
+// $secondary-color: #379683;
+// $info-color: #7395ae;
+// $default-color: #557a95;
+// $success-color: #b1a296;
+// $danger-color: #501b1d;
+// $color: yellow;
+
+// body {
+//   background-color: $default-color;
+// }
+
+// .primary {
+//   background-color: $primary-color;
+//   width: 20%;
+//   position: absolute;
+//   right: 0;
+//   margin: 5px;
+//   border: 2px solid $default-color;
+// }
+
+// .secondary {
+//   background-color: $secondary-color;
+//   width: 20%;
+//   position: absolute;
+//   left: 0;
+//   margin: 5px;
+//   border: 2px solid $default-color;
+// }
+
+//-------------------------------------------------------------
+
+// @mixin theme($theme-color: $primary-color) {
+//   background-color: $theme-color;
+//   width: 200px;
+//   position: absolute;
+//   // margin: 5px;
+//   border: 2px solid $default-color;
+//   height: 3px;
+//   padding: 20px;
+//   border-radius: 50px 50px 50px 50px;
+// }
+
+// .primary {
+//   //it tkes the value from the default block @mixin theme
+//   @include theme($primary-color);
+//   right: 20px;
+// }
+// .secondary {
+//   @include theme($secondary-color);
+//   left: 20px;
+// }
