@@ -4,6 +4,8 @@ import "./Style.scss";
 import HookSampleUser from "./HookSampleUser";
 // import SassDemo from "./SassDemo";
 import RadiumDemo from "./RadiumDemo";
+import FlowDemo from "./FlowDemo";
+import TestComponent from "./TestComponent";
 
 function App() {
   // const onClickhandler = () => {
@@ -13,7 +15,10 @@ function App() {
   return (
     <div className="App">
       {/* <SassDemo /> */}
-      <RadiumDemo />
+      {/* <RadiumDemo /> */}
+
+      {/* <FlowDemo /> */}
+      <TestComponent name={"   SwaPniL"} />
     </div>
   );
 }
